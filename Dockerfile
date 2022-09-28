@@ -11,6 +11,5 @@ ADD babble babble
 RUN apt install curl -y
 ADD install_rustup.sh install_rustup.sh
 RUN sh install_rustup.sh -y
-#RUN ls ${HOME}/.cargo/bin
 ENV PATH="/root/.cargo/bin:${PATH}"
 RUN cd babble && cargo build
