@@ -1,0 +1,6 @@
+[submodule "babble"]
+	path = babble
+	url = git@github.com:vfx-rs/babble.git
+[submodule "llvm-project"]
+	path = llvm-project
+	url = git@github.com:llvm/llvm-project.git
