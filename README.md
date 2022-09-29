@@ -1,2 +1,14 @@
 # vfx_rs_environment
-Sets up the environment for babble to build
+
+This repo builds babble an all of its dependencies inside of a docker image.
+
+# Setup
+Make sure you have the submodules checked out.
+
+> git submodule update --init
+
+# Build
+To build you need to run docker.
+> docker build -t vfx_rs_environment .
+
+Once the build is complete you will have a docker image that contains babble and all of its dependencies.

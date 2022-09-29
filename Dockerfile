@@ -17,4 +17,4 @@ ENV PATH=${CWD}/cmake/bin:$PATH
 # Build and install clang
 RUN cd llvm-project && mkdir .build && cd .build && cmake -DLLVM_ENABLE_PROJECTS=clang -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" ../llvm && make -j && make install
 # Finally build babble
-RUN cd babble && cargo build
+RUN cd babble && cargo build && cargo test
