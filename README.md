@@ -9,6 +9,6 @@ Make sure you have the submodules checked out.
 
 # Build
 To build you need to run docker.
-> docker build -t vfx_rs_environment .
+> docker build -t ltitley/vfxrs_env_usd .
 
 Once the build is complete you will have a docker image that contains babble and all of its dependencies.
