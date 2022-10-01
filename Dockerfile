@@ -1,8 +1,8 @@
-FROM ubuntu:20.04
-RUN apt update
-RUN apt install build-essential curl python3 -y
+FROM aswf/ci-usd:2021
+
+#RUN apt update
+#RUN rpm -ivh -y g++ curl python3 -y
 # Add everything
-ADD babble babble
 ADD install_rustup.sh install_rustup.sh
 ADD llvm-project llvm-project
 # Install rust
@@ -15,6 +15,7 @@ RUN rm -rf cmake
 RUN mv cmake-3.24.2-linux-x86_64 cmake
 ENV PATH=${CWD}/cmake/bin:$PATH
 # Build and install clang
-RUN cd llvm-project && mkdir .build && cd .build && cmake -DLLVM_ENABLE_PROJECTS=clang -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" ../llvm && make -j && make install
+RUN cd llvm-project && mkdir .build && cd .build && cmake -DLLVM_ENABLE_PROJECTS=clang -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" ../llvm && make -j12 && make install
 # Finally build babble
-RUN cd babble && cargo build && cargo test
+#ADD babble babble
+#RUN cd babble && cargo build && cargo test
