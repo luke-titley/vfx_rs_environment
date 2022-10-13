@@ -16,6 +16,14 @@ RUN mv cmake-3.24.2-linux-x86_64 cmake
 ENV PATH=${CWD}/cmake/bin:$PATH
 # Build and install clang
 RUN cd llvm-project && mkdir .build && cd .build && cmake -DLLVM_ENABLE_PROJECTS=clang -DCMAKE_BUILD_TYPE=Release -G "Unix Makefiles" ../llvm && make -j12 && make install
+
+# Build and install USD
+RUN curl -L https://github.com/PixarAnimationStudios/USD/archive/refs/tags/v21.11.zip > /tmp/usd.zip
+RUN unzip /tmp/usd.zip
+#RUN curl --proto '=https' -sSf https://sh.rustup.rs > /tmp/rustinit.sh
+#RUN bash /tmp/rustinit.sh -y --default-toolchain=1.52.0
+RUN python2 USD-21.11/build_scripts/build_usd.py --no-imaging --no-python -v /usr/local/USD
+
 # Finally build babble
 #ADD babble babble
 #RUN cd babble && cargo build && cargo test
