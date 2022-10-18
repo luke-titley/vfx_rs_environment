@@ -3,4 +3,7 @@
 	url = git@github.com:vfx-rs/babble.git
 [submodule "llvm-project"]
 	path = llvm-project
-	url = git@github.com:llvm/llvm-project.git
+	url = git@github.com:anderslanglands/llvm-project.git
+[submodule "bbl-usd"]
+	path = bbl-usd
+	url = git@github.com:anderslanglands/bbl-usd.git
