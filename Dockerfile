@@ -20,7 +20,7 @@ RUN cd llvm-project && mkdir .build && cd .build && cmake -DLLVM_ENABLE_PROJECTS
 # Build and install USD
 RUN curl -L https://github.com/PixarAnimationStudios/USD/archive/refs/tags/v23.02.zip > /tmp/usd.zip
 RUN unzip /tmp/usd.zip
-RUN python2 USD-23.02/build_scripts/build_usd.py --no-imaging --no-python -v /usr/local/USD
+RUN python2 USD-23.02/build_scripts/build_usd.py --build-monolithic --no-imaging --no-python -v /usr/local/USD
 
 # Finally build babble
 #ADD babble babble
